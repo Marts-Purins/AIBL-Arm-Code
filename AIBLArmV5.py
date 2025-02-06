@@ -27,7 +27,6 @@ button_last_state = 1
 button_press_time = 0
 long_press_duration = 5000  # 5 seconds (in ms)
 
-# Update Test
 
 ###### 5D Button Definitions ######
 
