@@ -3,7 +3,7 @@ import machine
 import sensor
 import display
 from machine import Pin, I2C, ADC
-
+# adding new comment
 ###### LCD Screen Definitions ######
 
 sensor.reset()  # Initialize the camera sensor.
