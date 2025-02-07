@@ -5,6 +5,7 @@ import display
 from machine import Pin, I2C, ADC
 
 ###### LCD Screen Definitions ######
+#Secret test
 
 sensor.reset()  # Initialize the camera sensor.
 sensor.set_pixformat(sensor.RGB565)  # or sensor.GRAYSCALE
