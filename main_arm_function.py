@@ -45,5 +45,3 @@ while True:
     #time.sleep(0.1)  # Debounce delay
 
     time.sleep(0.03)  # Delay to allow for processing
-
-# Test
