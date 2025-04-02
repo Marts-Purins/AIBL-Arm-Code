@@ -51,7 +51,7 @@ pinch_menu = ["31.jpg", "32.jpg", "33.jpg"]
 
 gripping_screen = ["34.jpg"]
 
-camera_mode = sensor.snapshot()
+camera_mode = ["off"]
 
 # Define links between menus based on selection index
 menu_links = {
@@ -109,8 +109,18 @@ def read_joystick():
         return "CENTER"
 
 def display_camera_feed():
-    while current_menu == "camera_mode":
+    lcd.clear()
+    camera_mode = ["on"]
+    time.sleep(0.5)
+    button_last_state = 1
+    while camera_mode == ["on"]:
         lcd.write(sensor.snapshot())
+        button_state = button.value()
+        if button_state == 1 and button_last_state == 0:
+            camera_mode = ["off"]
+            break
+        button_last_state = button_state
+        time.sleep(0.05)
 
 # Handle joystick movement and button presses
 last_move_time = time.ticks_ms()
@@ -155,9 +165,10 @@ while True:
     button_last_state = button_state
 
     # Enter Camera Mode if in object recognition menu
-    if current_menu == "objrec_menu":
+    if current_menu == "camera_mode":
         display_camera_feed()
         current_menu = "main_menu"
+        menu_stack = ["main_menu"]
         current_index = 0
     else:
         # Display the selected image
